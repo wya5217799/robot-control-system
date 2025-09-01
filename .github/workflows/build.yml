@@ -1,0 +1,35 @@
+name: Build Robot Control System
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential
+        sudo apt-get install -y libopencv-dev
+        # 注意：WiringPi在GitHub Actions中无法直接安装，
+        # 在实际硬件上运行时需要手动安装
+    
+    - name: Build project
+      run: |
+        # 创建一个不依赖WiringPi的测试版本
+        g++ -std=c++11 -Wall -Wextra -O2 \
+            -DTEST_BUILD \
+            -o robot_control_test main.cpp \
+            -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -lopencv_videoio -lopencv_highgui -lpthread
+    
+    - name: Check build artifacts
+      run: |
+        ls -la robot_control_test
+        echo "Build completed successfully!"

@@ -1,0 +1,36 @@
+# 编译生成的文件
+*.o
+*.exe
+robot_control
+a.out
+
+# IDE和编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.log
+
+# 临时文件
+*.tmp
+*.temp
+
+# 调试文件
+*.dSYM/
+*.gdb_history
+
+# CMake生成的文件 (如果使用CMake)
+build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile.cmake
+
+# 其他
+*.bak
+*.orig
