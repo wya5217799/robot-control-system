@@ -1,3 +1,35 @@
+# Build artifacts / 构建产物
+/build/
+/bin/
+/obj/
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+*.exe
+*.out
+
+# VS Code / 编辑器
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / 日志
+*.log
+
+# CMake
+/CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# User configs / 用户配置
+*.user
 # 编译生成的文件
 *.o
 *.exe

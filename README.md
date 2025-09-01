@@ -1,105 +1,105 @@
-# 机器人控制系统
+# 机器人控制系统 / Robot Control System
 
-一个基于C++的智能机器人控制系统，集成了图像处理、运动控制和串口通信功能。
+一个基于 C++ 的智能机器人控制系统，集成图像处理、运动控制与串口通信功能。
+An intelligent robot control system in C++ integrating vision, motion control, and serial comms.
 
-## 功能特性
+## 功能特性 / Features
 
-- 🤖 **实时图像处理**: 使用OpenCV进行目标检测和跟踪
-- 🎮 **运动控制**: 基于WiringPi的精确电机控制
-- 📡 **串口通信**: 高效的数据传输和命令处理
-- ⚡ **多线程处理**: 并发执行多个任务以提高性能
+- 🤖 实时图像处理（OpenCV） / Real-time vision with OpenCV
+- 🎮 运动控制（WiringPi） / Precise motor control via WiringPi
+- 📡 串口通信 / Serial communication for commands & telemetry
+- ⚡ 多线程并发 / Multithreaded concurrency with pthreads
 
-## 技术栈
+## 技术栈 / Tech Stack
 
-- **编程语言**: C++
-- **图像处理**: OpenCV
-- **硬件控制**: WiringPi
-- **通信**: 串口通信 (Serial)
-- **并发**: pthread
+- 语言 / Language: C++
+- 图像处理 / Vision: OpenCV
+- 硬件控制 / Hardware Control: WiringPi
+- 通信 / Comms: Serial
+- 并发 / Concurrency: pthread
 
-## 系统要求
+## 系统要求 / Requirements
 
-- Linux系统 (推荐树莓派)
-- GCC/G++ 编译器
-- OpenCV 库 (≥ 3.0)
-- WiringPi 库
-- pthread 支持
+- Linux（推荐树莓派）/ Linux (Raspberry Pi recommended)
+- GCC/G++
+- OpenCV ≥ 3.0
+- WiringPi
+- pthread
 
-## 编译和运行
+## 编译与运行 / Build & Run
 
-### 安装依赖
+### 安装依赖 / Install Dependencies
 
 ```bash
-# Ubuntu/Debian系统
+# Ubuntu/Debian
 sudo apt-get update
-sudo apt-get install build-essential
-sudo apt-get install libopencv-dev
-sudo apt-get install wiringpi
-
-# 或使用包管理器安装OpenCV
-sudo apt-get install libopencv-contrib-dev
+sudo apt-get install -y build-essential libopencv-dev wiringpi
+# 可选：OpenCV contrib | optional
+sudo apt-get install -y libopencv-contrib-dev
 ```
 
-### 编译项目
+### 编译项目 / Build
 
 ```bash
-# 编译主程序
-g++ -o robot_control main.cpp -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -lopencv_videoio -lwiringPi -lpthread
+# 直接编译 | direct
+g++ -o robot_control main.cpp -lopencv_core -lopencv_imgproc -lopencv_imgcodecs -lopencv_videoio -lopencv_highgui -lwiringPi -lpthread -I/usr/include/opencv4
 
-# 或使用Makefile
+# 使用 Makefile | with Makefile
 make
 ```
 
-### 运行
+### 运行 / Run
 
 ```bash
 sudo ./robot_control
 ```
 
-## 项目结构
+## 项目结构 / Project Structure
 
 ```
 .
-├── main.cpp              # 主程序文件
-├── Makefile             # 编译配置
-├── README.md            # 项目说明
-├── .github/             # GitHub配置
-│   └── copilot-instructions.md
-└── docs/                # 文档目录
+├── main.cpp              # 主程序 | main program
+├── Makefile              # 编译配置 | build rules
+├── README.md             # 项目说明 | this file
+├── LICENSE               # 许可证 | license
+└── docs/                 # 文档 | docs
 ```
 
-## 主要模块
+## 主要模块 / Modules
 
-### 图像处理模块
-- 实时视频捕获
-- 目标检测和识别
-- 图像预处理和滤波
+### 图像处理 / Vision
+- 实时视频捕获 / live video capture
+- 目标检测识别 / detection & recognition
+- 预处理与滤波 / preprocessing & filtering
 
-### 运动控制模块
-- 电机驱动控制
-- 位置和速度控制
-- 轨迹规划
+### 运动控制 / Motion Control
+- 电机驱动控制 / motor driver control
+- 位置速度控制 / position & speed control
+- 轨迹规划 / trajectory planning
 
-### 通信模块
-- 串口数据收发
-- 命令解析和执行
-- 状态反馈
+### 通信 / Communication
+- 串口收发 / serial RX/TX
+- 命令解析执行 / command parsing
+- 状态反馈 / status feedback
 
-## 使用说明
+## 使用说明 / Usage
 
-1. 确保硬件连接正确
-2. 编译并运行程序
-3. 通过串口发送控制命令
-4. 观察机器人响应和图像处理结果
+1) 确保硬件连接正确 / verify hardware wiring
+2) 编译并运行程序 / build and run
+3) 通过串口发送命令 / send commands over serial
+4) 观察响应与图像窗口 / observe behavior & UI windows
 
-## 贡献
+## 贡献 / Contributing
 
-欢迎提交问题和改进建议！
+欢迎提交 Issue/PR；请遵循常见的 C++ 代码规范。
+Issues and PRs are welcome; follow common C++ style guidelines.
 
-## 许可证
+## 许可证 / License
 
 本项目采用 MIT 许可证。
+Licensed under the MIT License.
 
-## 联系方式
+## 联系方式 / Contact
 
-如有问题，请创建 Issue 或联系项目维护者。
+如有问题，请创建 Issue。
+For questions, please open an issue.
